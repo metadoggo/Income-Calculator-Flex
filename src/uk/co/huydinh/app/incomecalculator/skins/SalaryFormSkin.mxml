@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"  
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("uk.co.huydinh.app.incomecalculator.components.SalaryForm")]
+	</fx:Metadata>
+	
+	<!-- SkinParts
+	name=holidaysPerYearField, type=spark.components.TextInput, required=false
+	name=hoursPerDayField, type=spark.components.TextInput, required=false
+	name=termFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	name=submitButton, type=spark.components.Button, required=false
+	name=amountFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	name=daysPerWeekField, type=spark.components.TextInput, required=false
+	name=daysPerWeekFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	name=holidaysPerYearFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	name=hoursPerDayFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	name=amountField, type=spark.components.TextInput, required=false
+	name=repayStudentLoan, type=spark.components.CheckBox, required=false
+	name=termField, type=spark.components.DropDownList, required=false
+	name=repayStudentLoanFieldLabel, type=spark.components.supportClasses.TextBase, required=false
+	-->
+	
+	<s:Form defaultButton="{submitButton}">
+		<s:layout>
+			<s:FormLayout gap="0" paddingTop="0" paddingBottom="0"/>
+		</s:layout>
+		<s:FormHeading label="Salary information" />
+		<s:FormItem label="Payment term">
+			<s:DropDownList id="termField" requireSelection="true" />
+		</s:FormItem>
+		<s:FormItem label="Amount">
+			<s:TextInput id="amountField" text="300" />
+		</s:FormItem>
+		<s:FormItem label="Hours per day">
+			<s:TextInput id="hoursPerDayField" text="8" />
+		</s:FormItem>
+		<s:FormItem label="Days per week">
+			<s:TextInput id="daysPerWeekField" text="5" />
+		</s:FormItem>
+		<s:FormItem label="Holiday (days)">
+			<s:TextInput id="holidaysPerYearField" text="0" />
+		</s:FormItem>
+		<s:FormItem>
+			<s:CheckBox id="repayStudentLoanField" label="Repay student loan" />
+		</s:FormItem>
+		<s:FormItem>
+			<s:Button id="submitButton" label="Calculate" />
+		</s:FormItem>
+	</s:Form>
+</s:Skin>

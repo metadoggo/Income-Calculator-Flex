@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					xmlns:s="library://ns.adobe.com/flex/spark" 
+					xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Declarations>
+		<s:CurrencyFormatter id="moneyFormatter" currencySymbol="£" useCurrencySymbol="true" fractionalDigits="2" groupingSeparator="," useGrouping="true" groupingPattern="3;*"/>
+		<fx:Component id="headerRenderer">
+			<s:DefaultGridHeaderRenderer textAlign="center"/>
+		</fx:Component>
+		<fx:Component id="moneyRenderer">
+			<s:DefaultGridItemRenderer textAlign="right"/>
+		</fx:Component>
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.IList;
+			
+			[Bindable]
+			public var dataProvider:IList;
+			
+		]]>
+	</fx:Script>
+	
+	<s:DataGrid id="resultDataGrid" dataProvider="{dataProvider}">
+		<s:typicalItem>
+			<s:DataItem label="National Insurance" annually="£9,999,999.99" monthly="£999,999.99" weekly="£99,999.99" daily="£9,999.99" hourly="£999.99"/>
+		</s:typicalItem>
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="label" headerText="" width="120"/>
+				<s:GridColumn dataField="annually" headerText="Annually" formatter="{moneyFormatter}" headerRenderer="{headerRenderer}" itemRenderer="{moneyRenderer}" width="90"/>
+				<s:GridColumn dataField="monthly" headerText="Montly" formatter="{moneyFormatter}" headerRenderer="{headerRenderer}" itemRenderer="{moneyRenderer}" width="90"/>
+				<s:GridColumn dataField="weekly" headerText="Weekly" formatter="{moneyFormatter}" headerRenderer="{headerRenderer}" itemRenderer="{moneyRenderer}" width="80"/>
+				<s:GridColumn dataField="daily" headerText="Daily" formatter="{moneyFormatter}" headerRenderer="{headerRenderer}" itemRenderer="{moneyRenderer}" width="80"/>
+				<s:GridColumn dataField="hourly" headerText="Hourly" formatter="{moneyFormatter}" headerRenderer="{headerRenderer}" itemRenderer="{moneyRenderer}" width="70"/>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+</s:NavigatorContent>

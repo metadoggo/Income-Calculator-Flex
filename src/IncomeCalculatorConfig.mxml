@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Objects 
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns="http://www.spicefactory.org/parsley"
+	xmlns:hw="org.spicefactory.parsley.sample.helloworld.*" xmlns:salaryform="uk.co.huydinh.app.incomecalculator.components.salaryform.*" xmlns:models="uk.co.huydinh.app.incomecalculator.models.*" xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<!--
+	This is an MXML configuration file for Parsley. It defines the objects
+	contained within a Parsley "context". These objects are managed by 
+	Parsley and can participate in all the features of the framework, such
+	as dependency-injection and messaging.
+	-->
+	
+	<fx:Declarations>
+		
+		<models:SalaryFormModel />
+		<models:SalaryInformationModel />
+		
+	</fx:Declarations>
+	
+</Objects>
