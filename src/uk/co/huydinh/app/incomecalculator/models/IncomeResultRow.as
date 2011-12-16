@@ -7,7 +7,7 @@ package uk.co.huydinh.app.incomecalculator.models
 		private var _workingDaysPerYear : Number;
 		private var _workingHoursPerYear : Number;
 		
-		public function IncomeResultRow(label:String, amount:Number, workingDaysPerYear:Number, workingHoursPerYear)
+		public function IncomeResultRow(label:String, amount:Number, workingDaysPerYear:Number, workingHoursPerYear:Number)
 		{
 			this._label = label;
 			this._amount = amount;
