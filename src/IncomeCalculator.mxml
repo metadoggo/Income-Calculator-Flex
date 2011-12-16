@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   minWidth="955"
+			   minHeight="600"
+			   height="100%"
 			   xmlns:salaryform="uk.co.huydinh.app.incomecalculator.components.salaryform.*"
-			   xmlns:parsley="http://www.spicefactory.org/parsley" xmlns:components="uk.co.huydinh.app.incomecalculator.components.*" xmlns:views="uk.co.huydinh.app.incomecalculator.views.*">
+			   xmlns:parsley="http://www.spicefactory.org/parsley"
+			   xmlns:components="uk.co.huydinh.app.incomecalculator.components.*" xmlns:views="uk.co.huydinh.app.incomecalculator.views.*">
 	<fx:Declarations>
 		
 		<parsley:ContextBuilder config="IncomeCalculatorConfig" />
@@ -13,5 +17,5 @@
 		<s:HorizontalLayout gap="20" paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10"/>
 	</s:layout>
 	<components:SalaryForm skinClass="uk.co.huydinh.app.incomecalculator.skins.SalaryFormSkin" width="250"/>
-	<views:SalaryInformationView skinClass="uk.co.huydinh.app.incomecalculator.skins.SalaryInformationSkin" />
+	<views:SalaryInformationView skinClass="uk.co.huydinh.app.incomecalculator.skins.SalaryInformationSkin" height="100%"/>
 </s:Application>

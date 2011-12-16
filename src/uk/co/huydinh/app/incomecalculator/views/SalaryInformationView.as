@@ -1,14 +1,15 @@
 package uk.co.huydinh.app.incomecalculator.views
 {
-	import mx.containers.ViewStack;
+	import mx.core.IVisualElement;
+	import mx.events.CloseEvent;
 	import mx.events.PropertyChangeEvent;
 	
 	import org.spicefactory.parsley.dsl.view.Configure;
 	
+	import spark.components.Group;
 	import spark.components.supportClasses.SkinnableComponent;
 	
-	import uk.co.huydinh.app.incomecalculator.components.IncomeResultPanel;
-	import uk.co.huydinh.app.incomecalculator.models.IncomeResult;
+	import uk.co.huydinh.app.incomecalculator.components.IncomeResultWindow;
 	import uk.co.huydinh.app.incomecalculator.models.SalaryInformationModel;
 	
 	public class SalaryInformationView extends SkinnableComponent
@@ -19,7 +20,7 @@ package uk.co.huydinh.app.incomecalculator.views
 		public var model:SalaryInformationModel;
 		
 		[SkinPart(required="true")]
-		public var stack:ViewStack;
+		public var content:Group;
 		
 		public function SalaryInformationView()
 		{
@@ -37,17 +38,18 @@ package uk.co.huydinh.app.incomecalculator.views
 		{
 			switch (event.property) {
 				case "results":
-					stack.removeAllElements();
-					for each (var result:IncomeResult in model.results) {
-						var panel:IncomeResultPanel = new IncomeResultPanel();
-						panel.label = result.label;
-						panel.dataProvider = result.data;
-						
-						stack.addElement(panel);
-					}
-					stack.selectedIndex = model.selectedIndex;
+					var window:IncomeResultWindow = new IncomeResultWindow();
+					window.results = model.results;
+					window.selectedIndex = model.selectedIndex;
+					window.addEventListener(CloseEvent.CLOSE, handleWindowCloseClick);
+					content.addElement(window);
 					break;
 			}
+		}
+		
+		protected function handleWindowCloseClick(event:CloseEvent):void
+		{
+			content.removeElement(event.target as IVisualElement);
 		}
 	}
 }

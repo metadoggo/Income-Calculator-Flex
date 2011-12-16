@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import uk.co.huydinh.app.incomecalculator.models.IncomeResult;
+			
+			private var _selectedIndex:uint;
+			private var _results:Array;
+			
+			public function get selectedIndex():uint { return _selectedIndex; }
+			public function set selectedIndex(value:uint):void
+			{
+				_selectedIndex = value;
+				if (stack) {
+					stack.selectedIndex = value;
+				}
+			}
+			
+			public function get results():Array { return _results; }
+			public function set results(value:Array):void
+			{
+				_results = value;
+				if (stack) {
+					updateStack();
+				} else {
+					addEventListener(FlexEvent.CREATION_COMPLETE, handleCreationComplete);
+				}
+			}
+			
+			public function handleCreationComplete(event:FlexEvent):void
+			{
+				removeEventListener(FlexEvent.CREATION_COMPLETE, handleCreationComplete);
+				updateStack();
+			}
+			
+			protected function updateStack():void
+			{
+				if (_results && _results.length) {
+					for each (var result:IncomeResult in results) {
+						var panel:IncomeResultPanel = new IncomeResultPanel();
+						panel.label = result.label;
+						panel.dataProvider = result.data;
+						
+						stack.addElement(panel);
+					}
+					if (selectedIndex) {
+						stack.selectedIndex = selectedIndex;
+					}
+				}
+			}
+		]]>
+	</fx:Script>
+	<s:TabBar dataProvider="{stack}" labelField="label"/>
+	<mx:ViewStack id="stack"/>
+</s:TitleWindow>

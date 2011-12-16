@@ -70,9 +70,10 @@ package uk.co.huydinh.app.incomecalculator.models
 		public function checkTaxDataReady(processor:MessageProcessor):void
 		{
 			if (taxDatas) {
-				processor.proceed();
+				processor.resume();
 			} else {
 				Alert.show("Required data is still loading, please wait a bit and try again.", "Can't do that...", Alert.OK);
+				processor.cancel();
 			}
 		}
 		[MessageHandler]

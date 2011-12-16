@@ -10,9 +10,7 @@
 	<!-- SkinParts
 	name=resultGrid, type=mx.containers.ViewStack, required=false
 	-->
-	<s:layout>
-		<s:VerticalLayout gap="0"/>
-	</s:layout>
-	<s:TabBar dataProvider="{stack}" labelField="label"/>
-	<mx:ViewStack id="stack"/>
+	<s:Scroller verticalScrollPolicy="auto" horizontalScrollPolicy="off" height="100%">
+		<s:VGroup id="content" gap="20" paddingBottom="20"/>
+	</s:Scroller>
 </s:Skin>
