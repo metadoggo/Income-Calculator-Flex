@@ -112,7 +112,6 @@ package uk.co.huydinh.app.incomecalculator.components
 			daysPerWeekValidator.requiredFieldError = "Please enter a valid number";
 			
 			termField.dataProvider = new ArrayList([SalaryFormModel.ANNUALLY, SalaryFormModel.MONTHLY, SalaryFormModel.WEEKLY, SalaryFormModel.DAILY, SalaryFormModel.HOURLY]);
-			termField.selectedIndex = 3;
 		}
 		
 		override protected function partAdded(partName:String, instance:Object):void

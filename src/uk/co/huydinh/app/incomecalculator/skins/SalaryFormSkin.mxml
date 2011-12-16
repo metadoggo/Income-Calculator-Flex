@@ -32,7 +32,7 @@
 			<s:DropDownList id="termField" requireSelection="true" />
 		</s:FormItem>
 		<s:FormItem label="Amount">
-			<s:TextInput id="amountField" text="300" />
+			<s:TextInput id="amountField" text="35000" />
 		</s:FormItem>
 		<s:FormItem label="Hours per day">
 			<s:TextInput id="hoursPerDayField" text="8" />
@@ -41,7 +41,7 @@
 			<s:TextInput id="daysPerWeekField" text="5" />
 		</s:FormItem>
 		<s:FormItem label="Holiday (days)">
-			<s:TextInput id="holidaysPerYearField" text="0" />
+			<s:TextInput id="holidaysPerYearField" text="25" />
 		</s:FormItem>
 		<s:FormItem>
 			<s:CheckBox id="repayStudentLoanField" label="Repay student loan" />
